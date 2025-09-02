@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- Use monoandroid13.0 or monoandroid12.0; pick the highest you have installed -->
+    <TargetFramework>monoandroid13.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>com.companyname.rar</RootNamespace>
+    <AssemblyName>rar</AssemblyName>
+    <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
+    <AndroidEnableAapt2>true</AndroidEnableAapt2>
+  </PropertyGroup>
+
+  <!-- Let SDK include *.cs implicitly; don't list them all with <Compile Include=...> -->
+  <ItemGroup>
+    <!-- Force aapt2 to see the layout -->
+    <AndroidResource Include="Resources\layout\activity_main.axml" />
+
+    <!-- App icons you reference in manifest/notification -->
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_gear.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_gear.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_gear.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_gear.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_gear.png" />
+
+    <!-- Optional: notification icon if you reference it -->
+    <!-- <AndroidResource Include="Resources\drawable\ic_stat_notify_dot.png" /> -->
+  </ItemGroup>
+</Project>

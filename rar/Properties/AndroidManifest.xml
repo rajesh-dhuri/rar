@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.companyname.rar">
+
+  <!-- Required runtime permissions -->
+  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.RECORD_AUDIO" />
+  <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+  <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+  <!-- Android 10+ foreground service types -->
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+  <!-- Android 14 foreground service specific permissions -->
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+
+  <!-- We use SAF, so no MANAGE_EXTERNAL_STORAGE needed -->
+
+  <application
+      android:allowBackup="true"
+      android:label="rar"
+      android:icon="@mipmap/ic_gear">
+
+    <!-- Single launcher entry (so only ONE icon appears) -->
+    <activity android:name=".MainActivity"
+              android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+
+    <!-- Foreground service that does the recording -->
+    <service
+        android:name=".VideoRecorderService"
+        android:exported="false"
+        android:foregroundServiceType="camera|microphone" />
+  </application>
+</manifest>
