@@ -10,6 +10,7 @@ using AndroidX.Core.App;
 using AndroidX.Core.Content;
 using System;
 using Uri = Android.Net.Uri;
+using Java.Lang;
 
 namespace com.companyname.rar
 {
